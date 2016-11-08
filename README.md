@@ -10,7 +10,7 @@
  The main class is <b>com.krish.ead.server.EADServer</b>.
  
  
- For writing Jnit Test cases, refer to the class com.krish.ead.server.KerberosLdapIntegrationTest.
+ For writing Jnit Test cases, refer to the class <b>com.krish.ead.server.KerberosLdapIntegrationTest</b>.
  A lot of time we need to generate keytabs on the fly as needed for Hadoop related integration Testing also.
  Refer to the method com.krish.ead.server.KerberosLdapIntegrationTest.createKeytab.
 
