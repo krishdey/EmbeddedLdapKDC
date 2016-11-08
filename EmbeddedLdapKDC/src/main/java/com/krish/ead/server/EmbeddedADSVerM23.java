@@ -79,6 +79,8 @@ public class EmbeddedADSVerM23 {
   private PartitionFactory partitionFactory;
 
   private KdcServer kdcServer;
+  
+  private static int DEFAULT_KERBEROS_PORT=6088;
 
   /**
    * Inits the system partition.
@@ -417,7 +419,7 @@ public class EmbeddedADSVerM23 {
     protocols.add(TransportType.TCP.toString());
     protocols.add(TransportType.UDP.toString());
     transport.setEnabledProtocols(protocols);
-    transport.setPort(6088);
+    transport.setPort(DEFAULT_KERBEROS_PORT);
     kdcServer.setTransports(transport);
     kdcServer.setSearchBaseDn("dc=jpmis,dc=com");
 
