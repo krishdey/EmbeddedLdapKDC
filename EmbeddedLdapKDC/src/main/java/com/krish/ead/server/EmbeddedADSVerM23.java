@@ -268,7 +268,7 @@ public class EmbeddedADSVerM23 {
     usersEntry.add(SchemaConstants.ENTRY_UUID_AT, UUID.randomUUID().toString());
 
     directoryService.getAdminSession().add(usersEntry);
-    directoryService.addLast(KeyDerivationInterceptor.class.newInstance());
+    directoryService.addFirst(KeyDerivationInterceptor.class.newInstance());
   }
 
   /**
