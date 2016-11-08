@@ -7,7 +7,7 @@
  (One can look at /EmbeddedLdapKDC/src/main/resources/krish.schema)
  
  So, the EmbeddedLdapKDC is an eclipse project and can be used to run it inside elipse or debugging if you change any code.
- The main class is com.krish.ead.server.EADServer.
+ The main class is <b>com.krish.ead.server.EADServer</b>.
  
  
  For writing Jnit Test cases, refer to the class com.krish.ead.server.KerberosLdapIntegrationTest.
