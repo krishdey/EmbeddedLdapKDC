@@ -108,7 +108,6 @@ public class KerberosLdapIntegrationTest {
   }
 
  
-
   public void setKrb5conf() throws IOException {
     String krb5String =
         IOUtils.toString(getClass().getClassLoader().getResourceAsStream("krb5.conf"));

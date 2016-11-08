@@ -80,7 +80,7 @@ public class EmbeddedADSVerM23 {
 
   private KdcServer kdcServer;
   
-  private static int DEFAULT_KERBEROS_PORT=6088;
+  private static int DEFAULT_KERBEROS_PORT=16088;
 
   /**
    * Inits the system partition.
