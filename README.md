@@ -32,3 +32,6 @@ Note: By deafult, the embedded server by default will add users as Read only use
 one need to be login as  cn=manager,ou=users,dc=jpmis,dc=com with password manager to do so,
 
 The default port for LDAP Server is 10389 and Kerberos is 16088. Feel free to change this.
+
+In case, you are testing Kerberos with any Hadoop related use case, you may want to go through
+http://krishdey5.blogspot.com/
