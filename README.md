@@ -17,7 +17,7 @@
  We may want to kinit from unix shell if developing a shell script for various use cases like ldap search, or ldap modify etc.
  Copy the krb5.conf located here /EmbeddedLdapKDC/src/main/resources/krb5.conf
  and use this command. The default location in unix is /etc/krb5.conf.
- env KRB5_CONFIG=<location of krb5.conf> kinit krish
+ env KRB5_CONFIG=<<location of krb5.conf>> kinit krish
  
  You may need to programatically addUser or Groups or add users to the group.
  Refer to the class com.krish.directory.service.EadSchemaService, where various methods are exposed to do the same.
@@ -34,7 +34,7 @@ one need to be login as  cn=manager,ou=users,dc=jpmis,dc=com with password manag
 The default port for LDAP Server is 10389 and Kerberos is 16088. Feel free to change this.
 
 You can also start the server from shell.
-Go to StandaloneEmbeddedLdapKDC/bin and invoke ./ead.sh <instance name> <start or run> 
+Go to StandaloneEmbeddedLdapKDC/bin and invoke ./ead.sh <<instance name>> <<start or run>> 
 
 
 In case, you are testing Kerberos with any Hadoop related use case, you may want to go through
