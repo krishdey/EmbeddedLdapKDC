@@ -23,7 +23,7 @@
  Refer to the class com.krish.directory.service.EadSchemaService, where various methods are exposed to do the same.
  
  Alternatively, you may also use ldapsearch, ldapmodify, ldapadd etc from unix shell or in a script.
- Refer to the command below to add an user. 
+ Refer to the command below to add an user through ldif which is in Resources folder here.
  
  bash>ldapmodify -H "ldap://localhost:10389" -D "cn=manager,ou=users,dc=jpmis,dc=com" -w manager -a -f captain.ldif
  
