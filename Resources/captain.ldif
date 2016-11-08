@@ -1,0 +1,14 @@
+dn: cn=JamesBond,ou=users,dc=jpmis,dc=com
+objectclass: user
+objectclass: organizationalPerson
+objectclass: person
+objectclass: top
+objectClass: krb5principal
+objectClass: krb5kdcentry
+cn: JamesBond
+description: A pirate captain and Peter Pan's nemesis
+sn: JamesBond
+sAMAccountName: JamesBond
+userpassword: peterPan
+krb5PrincipalName: JamesBond@EXAMPLE.COM,
+krb5KeyVersionNumber: 0
