@@ -313,7 +313,7 @@ public class EmbeddedADSVerM23 {
     ldapServer.setTransports(new TcpTransport(serverPort));
     ldapServer.setDirectoryService(directoryService);
     ldapServer.start();
-    loadTestUserAndGroup();
+    loadBindUserAndGroup();
     startKerberos();
 
   }
@@ -334,7 +334,7 @@ public class EmbeddedADSVerM23 {
     directoryService.getAdminSession().modify(modReq);
 
     //@formatter:off
-    addPrescriptiveACI(
+    addPrescriptiveACI("directoryManagerReadOnlyAccessACI,dc=jpmis,dc=com",
         "{ " +
             "  identificationTag \"directoryManagerReadOnlyAccessACI\", " +
             "  precedence 11, " +
@@ -352,13 +352,36 @@ public class EmbeddedADSVerM23 {
             "  } " +
             "}");
      //@formatter:on
+    
+    //@formatter:off
+    addPrescriptiveACI("directoryManagerRWAccessACI,dc=jpmis,dc=com",
+        "{ " +
+            "  identificationTag \"directoryManagerRWAccessACI\", " +
+            "  precedence 12, " +
+            "  authenticationLevel simple, " +
+            "  itemOrUserFirst userFirst: " +
+            "  { " +
+            "    userClasses { name { \"cn=manager,ou=users,dc=jpmis,dc=com\" }}, " +
+            "    userPermissions " +
+            "    { " +
+            "      { " +
+            "        protectedItems {entry, allUserAttributeTypesAndValues}, " +
+            "        grantsAndDenials { grantAdd, grantDiscloseOnError, grantRead," +
+            "        grantRemove, grantBrowse, grantExport, grantImport," +
+            "       grantModify, grantRename, grantReturnDN," +
+            "        grantCompare, grantFilterMatch, grantInvoke } " +
+            "      } " +
+            "    } " +
+            "  } " +
+            "}");
+     //@formatter:on
   }
 
-  private void addPrescriptiveACI(String aciItem) throws Exception {
+  private void addPrescriptiveACI(String cn, String aciItem) throws Exception {
     Entry subEntry =
-        new DefaultEntry("cn=" + "directoryManagerReadOnlyAccessACI" + ",dc=jpmis,dc=com",
-            "objectClass: top", "objectClass: subentry", "objectClass: accessControlSubentry",
-            "subtreeSpecification", "{}", "prescriptiveACI", aciItem);
+        new DefaultEntry("cn=" + cn, "objectClass: top", "objectClass: subentry",
+            "objectClass: accessControlSubentry", "subtreeSpecification", "{}", "prescriptiveACI",
+            aciItem);
     AddRequest addRequest = new AddRequestImpl();
     addRequest.setEntry(subEntry);
     directoryService.getAdminSession().add(addRequest);
@@ -368,17 +391,16 @@ public class EmbeddedADSVerM23 {
     return directoryService;
   }
 
-  public void loadTestUserAndGroup() throws Exception {
+  public void loadBindUserAndGroup() throws Exception {
     EadSchemaService eadSchemaService = new EadSchemaService(getDirectoryService());
     eadSchemaService.createUser("krish", "krish");
     eadSchemaService.createGroup("ND-POC-ENG");
     eadSchemaService.addUserToGroup("krish", "ND-POC-ENG");
-
-    eadSchemaService.createUser("jim", "jim");
-    eadSchemaService.addUserToGroup("jim", "ND-POC-ENG");
-
     eadSchemaService.createUser("chris", "chris");
-    eadSchemaService.addUserToGroup("chris", "ND-POC-ENG");
+      
+    eadSchemaService.createUser("manager", "manager");
+    eadSchemaService.addUserToGroup("manager", "ND-POC-ENG");
+
   }
 
   private void startKerberos() throws Exception {
@@ -443,26 +465,5 @@ public class EmbeddedADSVerM23 {
     kdcServer.stop();
   }
 
-  /**
-   * 
-   * This is for testing purpose. DO NOT REMOVE
-   * 
-   * @param args
-   * @throws Exception
-   */
-  public static void main(String[] args) throws Exception {
-    InstanceLayout layout = new InstanceLayout("/tmp/krish");
-    EmbeddedADSVerM23 ads = new EmbeddedADSVerM23();
-    ads.startServer(layout, 10689);
-    EadSchemaService eadSchemaService = new EadSchemaService(ads.getDirectoryService());
-    eadSchemaService.createUser("krish", "krish");
-    eadSchemaService.createGroup("ND-POC-ENG");
-    eadSchemaService.addUserToGroup("krish", "ND-POC-ENG");
 
-    eadSchemaService.createUser("jim", "jim");
-    eadSchemaService.addUserToGroup("jim", "ND-POC-ENG");
-
-    eadSchemaService.createUser("chris", "chris");
-    eadSchemaService.addUserToGroup("chris", "ND-POC-ENG");
-  }
 }
