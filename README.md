@@ -29,7 +29,7 @@
  bash>ldapmodify -H "ldap://localhost:10389" -D "cn=manager,ou=users,dc=jpmis,dc=com" -w manager -a -f captain.ldif
  
  
-Note: By deafult, the embedded server by default will add users as Read only user, so if you need to add, delete or modify any objects 
+Note: By deafult, the embedded server  will add users as Read only user, so if you need to add, delete or modify any objects 
 one need to be login as  cn=manager,ou=users,dc=jpmis,dc=com with password manager to do so,
 
 The default port for LDAP Server is 10389 and Kerberos is 16088. Feel free to change this.
