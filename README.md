@@ -33,5 +33,10 @@ one need to be login as  cn=manager,ou=users,dc=jpmis,dc=com with password manag
 
 The default port for LDAP Server is 10389 and Kerberos is 16088. Feel free to change this.
 
+You can also start the server from shell.
+Go to StandaloneEmbeddedLdapKDC/bin and invoke ./ead.sh <instance name> <start or run>
+
+
 In case, you are testing Kerberos with any Hadoop related use case, you may want to go through
 http://krishdey5.blogspot.com/
+
