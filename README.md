@@ -41,3 +41,5 @@ Go to StandaloneEmbeddedLdapKDC/bin and invoke ./ead.sh "instance name" "start o
 In case, you are testing Kerberos with any Hadoop related use case, you may want to go through
 http://krishdey5.blogspot.com/
 
+
+#LDAP #HADOOP #EMBEDDEDKDC
