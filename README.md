@@ -1,3 +1,4 @@
+<head><meta name="google-site-verification" content="1TW3WR55FRFPtA0ho0QfHUM6Zyv9Tf97DslrUMyFTnE" /></head>
 # EmbeddedLdapKDC
 
  This is the project for starting an embedded Directory Service and Kerberos which can be used to run locally or also
