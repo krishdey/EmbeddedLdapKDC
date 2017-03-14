@@ -42,4 +42,4 @@ In case, you are testing Kerberos with any Hadoop related use case, you may want
 http://krishdey5.blogspot.com/
 
 
-#LDAP #HADOOP #EMBEDDEDKDC
+#LDAP #HADOOP #EMBEDDEDKDC #EMbedded LDAP #Embedded KDC
