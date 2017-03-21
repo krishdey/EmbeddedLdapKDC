@@ -1,5 +1,5 @@
 <head><meta name="google-site-verification" content="1TW3WR55FRFPtA0ho0QfHUM6Zyv9Tf97DslrUMyFTnE" /></head>
-# EmbeddedLdapKDC
+# Embedded Ldap KDC
 
  This is the project for starting an embedded Directory Service and Kerberos which can be used to run locally or also
  can be used for JUNIT Testing for LDAP Integration use cases or Kerberos. 
